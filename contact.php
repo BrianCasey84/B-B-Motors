@@ -4,39 +4,39 @@
 		$errNumber = "";
 		$errMessage = "";
 		$result = "";
-	if (isset($_POST["submit"])) {	
+	if (isset($_POST["submit"])) {
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$number = $_POST['number'];
 		$message = $_POST['message'];
-		
+
 		$from = 'contactform@bbautos.ie';
 		$to = 'bbautos@gmail.com';
 		$email_headers = "From: FROM $name <contactform@bbautos.ie>";
 		$subject = 'Message from Website Contact Form';
 		$body = "From: $name\n Email: $email\n Number: $number\n Message:\n $message";
-		
-				
+
+
 		//Check if name has been entered
 		if (!$_POST['name']) {
 			$errName = 'Please enter your name';
 		}
-		
+
 		//Check if email has been entered and validate if so
 		if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 			$errEmail = 'Please enter a valid email address';
 		}
-		
+
 		//Check if number has been entered
 		if (!$_POST['number']) {
 			$errNumber = 'Please enter your phone number';
 		}
-		
+
 		//Check if message has been entered
 		if (!$_POST['message']) {
 			$errMessage = 'Please enter your message';
 		}
-		
+
 		// If there are no errors, send the email
 		if (!$errName && !$errEmail && !$errNumber && !$errMessage) {
 			if (mail ($to, $subject, $body, $email_headers, $from)) {
@@ -104,11 +104,14 @@
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <a href="about.html">About</a>
                     </li>
                     <li>
                         <a href="contact.php">Contact</a>
                     </li>
+										<li>
+												<a href="#">Login</a>
+										</li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -118,7 +121,7 @@
 
     <!-- Page Content -->
     <div class="container">
-    
+
     	<div class="row">
             <div class="box">
                 <div class="col-lg-12">
@@ -128,7 +131,7 @@
                     </h2>
                     <hr>
                 </div>
-                
+
     <div class="col-md-8">
     	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2442.911893540137!2d-7.13767649080396!3d52.24498396653122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4842db4199688be1%3A0xb2a84996e9a0d681!2sR680%2C+Waterford%2C+Ireland!5e0!3m2!1sen!2sus!4v1490371177413" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
@@ -140,12 +143,12 @@
                     <p><strong>Email:</strong>
                         <a href="mailto:bbautos@gmail.com">bbautos@gmail.com</a>
                     </p>
-                   
+
                 </div>
                 <div class="clearfix"></div>
             </div>
         </div>
-    
+
     	<div class="row">
             <div class="box">
                 <div class="col-lg-12">
@@ -227,4 +230,3 @@
 </body>
 
 </html>
-
