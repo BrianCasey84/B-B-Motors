@@ -40,7 +40,7 @@
 		// If there are no errors, send the email
 		if (!$errName && !$errEmail && !$errNumber && !$errMessage) {
 			if (mail ($to, $subject, $body, $email_headers, $from)) {
-				$result= '<div class="alert alert-success">Thank You! I will be in touch</div>';
+				$result= '<div class="alert alert-success">Thank You! We will be in touch</div>';
 			} else {
 				$result= '<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later</div>';
 				print_r(error_get_last());
@@ -207,6 +207,7 @@
 
         <!-- Footer -->
         <footer>
+		<a name="bottom"></a>
             <div class="row">
                 <div class="col-lg-12">
                     <center><p>Copyright &copy; B&amp;B Autos 2017</p></center>
