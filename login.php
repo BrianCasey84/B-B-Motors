@@ -1,3 +1,9 @@
+<?php
+/*
+Author: Barrie & Brian
+
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,58 +72,42 @@
     <!-- Page Content -->
     <div class="container">
 
-        <div class="row">
+      <?php
+require('db.php');
+session_start();
+  // If form submitted, insert values into the database.
+  if (isset($_POST['username'])){
 
-            <div class="col-md-3">
-                <p class="lead">About Us</p>
-                <div class="list-group">
+  $username = stripslashes($_REQUEST['username']); // removes backslashes
+  $username = mysqli_real_escape_string($con,$username); //escapes special characters in a string
+  $password = stripslashes($_REQUEST['password']);
+  $password = mysqli_real_escape_string($con,$password);
 
-                  <p>B & B Auto was founded by Barrie Kealy and Brian Casey in late 2015, both graduates of Waterford Institute of Technology.
-                     Armed with unsuppressed drive and appetite for success Barrie and Brian entered the Automotive Sales Industry.</p>
-                  <p>
-                      Having both spent the previous years subsisting on a student budget and listening to their fellow colleagues struggling to finance travel, they decided to provide a service to students and graduates, providing them with safe and affordable cars at discounted rates.</p>
-                  <p>
-                     We aim to create a new fresh, user friendly environment where customers have access to a wide variety of cars for all budgets.
-                  </p>
+//Checking is user existing in the database or not
+      $query = "SELECT * FROM `users` WHERE username='$username' and password='".md5($password)."'";
+  $result = mysqli_query($con,$query) or die(mysql_error());
+  $rows = mysqli_num_rows($result);
+      if($rows==1){
+    $_SESSION['username'] = $username;
+    header("Location: user.php"); // Redirect user to index.php
+          }else{
+      echo "<div class='form'><h3>Username/password is incorrect.</h3><br/>Click here to <a href='login.php'>Login</a></div>";
+      }
+  }else{
+?>
+<div class="form">
+<h1>Log In</h1>
+<form action="" method="post" name="login">
+<input type="text" name="username" placeholder="Username" required />
+<input type="password" name="password" placeholder="Password" required />
+<input name="submit" type="submit" value="Login" />
+</form>
+<p>Not registered yet? <a href='registration.php'>Register Here</a></p>
 
-                </div>
-            </div>
+<br /><br />
 
-            <div class="col-md-9">
-
-                <div class="row carousel-holder">
-
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                              <div class="item active">
-                                  <img class="slide-image" src="img/likenew.jpg" alt="">
-                              </div>
-                              <div class="item">
-                                  <img class="slide-image" src="img/brian.jpg" alt="">
-                              </div>
-                              <div class="item">
-                                  <img class="slide-image" src="img/barrie&brian.jpg" alt="">
-                              </div>
-                          </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-        </div>
-
+</div>
+<?php } ?>
     </div>
     <!-- /.container -->
 

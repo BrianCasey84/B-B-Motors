@@ -1,3 +1,7 @@
+<?php
+//include auth.php file on all secure pages
+include("auth.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>About - B&amp;B Autos</title>
+    <title>Welcome Back - B&amp;B Autos</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -66,60 +70,11 @@
     <!-- Page Content -->
     <div class="container">
 
-        <div class="row">
-
-            <div class="col-md-3">
-                <p class="lead">About Us</p>
-                <div class="list-group">
-
-                  <p>B & B Auto was founded by Barrie Kealy and Brian Casey in late 2015, both graduates of Waterford Institute of Technology.
-                     Armed with unsuppressed drive and appetite for success Barrie and Brian entered the Automotive Sales Industry.</p>
-                  <p>
-                      Having both spent the previous years subsisting on a student budget and listening to their fellow colleagues struggling to finance travel, they decided to provide a service to students and graduates, providing them with safe and affordable cars at discounted rates.</p>
-                  <p>
-                     We aim to create a new fresh, user friendly environment where customers have access to a wide variety of cars for all budgets.
-                  </p>
-
-                </div>
-            </div>
-
-            <div class="col-md-9">
-
-                <div class="row carousel-holder">
-
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                              <div class="item active">
-                                  <img class="slide-image" src="img/likenew.jpg" alt="">
-                              </div>
-                              <div class="item">
-                                  <img class="slide-image" src="img/brian.jpg" alt="">
-                              </div>
-                              <div class="item">
-                                  <img class="slide-image" src="img/barrie&brian.jpg" alt="">
-                              </div>
-                          </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-        </div>
-
-    </div>
-    <!-- /.container -->
+      <div class="form">
+<p>Welcome <?php echo $_SESSION['username']; ?>!</p>
+<p>Some Text</p>
+<a href="logout.php">Logout</a>
+</div>
 
     <div class="container">
 
