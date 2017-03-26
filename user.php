@@ -71,10 +71,10 @@ include("auth.php");
     <div class="container">
 
       <div class="form">
-<p>Welcome <?php echo $_SESSION['username']; ?>!</p>
-<p>Some Text</p>
-<a href="logout.php">Logout</a>
-</div>
+          <p>Welcome <?php echo $_SESSION['username']; ?>!</p>
+          <p>Some Text</p>
+            <a href="logout.php">Logout</a>
+      </div>
 
     <div class="container">
 
