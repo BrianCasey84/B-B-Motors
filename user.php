@@ -72,7 +72,55 @@ include("auth.php");
 
       <div class="form">
           <p>Welcome <?php echo $_SESSION['username']; ?>!</p>
-          <p>Some Text</p>
+
+			<h1>Add Car</h1>
+<form name="addCar" action="addCar.php" method="post">
+<label>Registration Number: </label><br>
+<input type="text" name="registration" placeholder="Registration Number" required /><br /><br />
+<label>Path to Image: </label><br>
+<input type="text" name="imgPath" placeholder="e.g. img/carName" required /><br /><br />
+<label>Manufactuer: </label><br>
+<select name="manufacturer" required>
+  <option value="audi">Audi</option>
+  <option value="ford">Ford</option>
+  <option value="skoda">Skoda</option>
+  <option value="toyota">Toyota</option>
+  <option value="volkswagen">Volkswagen</option>
+  <option value="Opel">Opel</option>
+  <option value="other">Other</option>
+</select><br /><br />
+<label>Model: </label><br>
+<input type="text" name="model" placeholder="model" required /><br /><br />
+<label>Colour: </label><br>
+<input type="text" name="colour" placeholder="Colour" required /><br /><br />
+<label>Year: </label><br>
+<input type="text" name="year" placeholder="Year" required /><br /><br />
+<label>Type: </label><br>
+<input type="radio" name="type" value="hatchback"> Hatchback
+  <input type="radio" name="type" value="saloon"> Saloon
+  <input type="radio" name="type" value="estate"> Estate
+  <input type="radio" name="type" value="coupe"> Coupe
+  <input type="radio" name="type" value="7-seater"> 7-seater<br /><br />
+  
+  <label>Number of doors: </label><br>
+<input type="text" name="doors" placeholder="Number of doors" required /><br /><br />
+<label>CC of engine: </label><br>
+<input type="text" name="cc" placeholder="CC of engine" /><br /><br />
+<label>Fuel type: </label><br>
+<input type="radio" name="fuel" value="petrol"> Petrol
+  <input type="radio" name="fuel" value="diesel"> Diesel
+  <input type="radio" name="fuel" value="gas"> Gas
+  <input type="radio" name="fuel" value="electric"> Electric<br /><br />
+  
+ <label>Email Address: </label><br>
+<input type="email" name="email" placeholder="Email" /><br /><br />
+<label>Phone number: </label><br>
+<input type="tel" name="phone" placeholder="Phone number" /><br /><br />
+
+<input type="submit" name="submit" value="Add Car" /><br /><br />
+</form>
+<br /><br />
+
             <a href="logout.php">Logout</a>
       </div>
 
