@@ -4,6 +4,7 @@ include_once("includes/dbconx.php");
 $tbl_usedCars = "CREATE TABLE IF NOT EXISTS usedcars (
               id VARCHAR(16) NOT NULL,
 			  imgPath VARCHAR (30) NOT NULL,
+			  price NUMERIC(10, 2) NOT NULL,
 			  manufacturer VARCHAR(30) NOT NULL,
 			  model VARCHAR(30) NOT NULL,
 			  colour VARCHAR(30) NOT NULL,
@@ -12,6 +13,7 @@ $tbl_usedCars = "CREATE TABLE IF NOT EXISTS usedcars (
 			  doors INT(11) NOT NULL,
 			  cc VARCHAR(30) NOT NULL,
 			  fuel ENUM('petrol','diesel','gas','electric') NOT NULL,
+			  description VARCHAR(500),
 			  email VARCHAR(255) NOT NULL,
 			  phone VARCHAR(30) NOT NULL,
               PRIMARY KEY (id)

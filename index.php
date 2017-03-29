@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>About - B&amp;B Autos</title>
+    <title>Home - B&amp;B Autos</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,6 +27,15 @@
 </head>
 
 <body>
+<?php
+include_once("includes/dbconx.php");
+
+
+/*  The following line uses the php mysqli_query function to read data from the usedCars table  */
+
+$result = mysqli_query($link, "SELECT * FROM usedCars" ) or die(mysqli_error($link));
+
+?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -39,13 +48,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://localhost/B-B-Motors/index.php">B&amp;B Autos</a>
+                <a class="navbar-brand" href="index.php">B&amp;B Autos</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                    	<a href="http://localhost/B-B-Motors/index.php">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
                         <a href="about.html">About</a>
@@ -69,17 +78,11 @@
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">About Us</p>
+                <p class="lead">Shop Name</p>
                 <div class="list-group">
-
-                  <p>B & B Auto was founded by Barrie Kealy and Brian Casey in late 2015, both graduates of Waterford Institute of Technology.
-                     Armed with unsuppressed drive and appetite for success Barrie and Brian entered the Automotive Sales Industry.</p>
-                  <p>
-                      Having both spent the previous years subsisting on a student budget and listening to their fellow colleagues struggling to finance travel, they decided to provide a service to students and graduates, providing them with safe and affordable cars at discounted rates.</p>
-                  <p>
-                     We aim to create a new fresh, user friendly environment where customers have access to a wide variety of cars for all budgets.
-                  </p>
-
+                    <a href="#" class="list-group-item">Category 1</a>
+                    <a href="#" class="list-group-item">Category 2</a>
+                    <a href="#" class="list-group-item">Category 3</a>
                 </div>
             </div>
 
@@ -95,16 +98,16 @@
                                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                             </ol>
                             <div class="carousel-inner">
-                              <div class="item active">
-                                  <img class="slide-image" src="img/likenew.jpg" alt="">
-                              </div>
-                              <div class="item">
-                                  <img class="slide-image" src="img/brian.jpg" alt="">
-                              </div>
-                              <div class="item">
-                                  <img class="slide-image" src="img/barrie&brian.jpg" alt="">
-                              </div>
-                          </div>
+                                <div class="item active">
+                                    <img class="slide-image" src="img/slide1.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="img/slide2.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="img/slide3.jpg" alt="">
+                                </div>
+                            </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
                             </a>
@@ -115,6 +118,24 @@
                     </div>
 
                 </div>
+
+                <div class="row">
+				<?php foreach($result as $r): ?>
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                        	<img src="<?php echo $r['imgPath'] ?>" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">&euro;<?php echo $r['price'] ?></h4>
+                                <h4><?php echo $r['model'] ?></h4>
+                                <p><?php echo $r['description'] ?></p>
+                            </div>
+                        </div>
+                    </div>
+                 <?php endforeach; ?>
+
+                </div>
+
+            </div>
 
         </div>
 

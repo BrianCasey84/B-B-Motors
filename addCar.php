@@ -37,6 +37,7 @@
 		$registration = stripslashes($_REQUEST['registration']); // removes backslashes
 		$imgPath = $_REQUEST['imgPath'];
 		$imgPath = mysqli_real_escape_string($link,$imgPath);
+		$price = $_REQUEST['price'];
 		$manufacturer = stripslashes($_REQUEST['manufacturer']);
 		$manufacturer = mysqli_real_escape_string($link,$manufacturer); //escapes special characters in a string
 		$model = stripslashes($_REQUEST['model']);
@@ -53,6 +54,8 @@
 		$cc = mysqli_real_escape_string($link,$cc);
 		$fuel = stripslashes($_REQUEST['fuel']);
 		$fuel = mysqli_real_escape_string($link,$fuel); 
+		$description = stripslashes($_REQUEST['description']);
+		$description = mysqli_real_escape_string($link,$description); //escapes special characters in a string
 		$email = stripslashes($_REQUEST['email']);
 		$email = mysqli_real_escape_string($link,$email);
 		$phone = stripslashes($_REQUEST['phone']);
@@ -70,6 +73,10 @@
 			$errors[] = "Image cannot be empty";
 		}
 		
+		if(!$price) {
+			$errors[] = "Price cannot be empty";
+		}
+		
 		if(!$manufacturer){
             $errors[] = "Manufacturer cannot be empty";
         }
@@ -85,6 +92,10 @@
 		if(!$type){
             $errors[] = "Type cannot be empty";
         }
+		
+		if(!$description) {
+			$errors[] = "Description cannot be empty";
+		}
 		
 		if(!$doors){
             $errors[] = "Doors cannot be empty";
@@ -145,7 +156,7 @@
          }
 
 		else{
-        $query = "INSERT INTO usedcars (id, imgPath, manufacturer, model, colour, year, type, doors, cc, fuel, email, phone) VALUES ('$registration', '$imgPath', '$manufacturer', '$model', '$colour', '$year', '$type', '$doors', '$cc', '$fuel', '$email', '$phone')";
+        $query = "INSERT INTO usedcars (id, imgPath, price, manufacturer, model, colour, year, type, doors, cc, fuel, description, email, phone) VALUES ('$registration', '$imgPath', '$price', '$manufacturer', '$model', '$colour', '$year', '$type', '$doors', '$cc', '$fuel', '$description', '$email', '$phone')";
         $result = mysqli_query($link, $query) or die(mysqli_error($link));
         if($result){
             echo "<div class='form'><h3>The car has been added successfully.</h3></div>";
@@ -168,13 +179,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">B&amp;B Autos</a>
+                <a class="navbar-brand" href="index.php">B&amp;B Autos</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
                         <a href="about.html">About</a>

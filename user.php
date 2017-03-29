@@ -43,13 +43,13 @@ include("auth.php");
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">B&amp;B Autos</a>
+                <a class="navbar-brand" href="index.php">B&amp;B Autos</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
                         <a href="about.html">About</a>
@@ -79,6 +79,8 @@ include("auth.php");
 <input type="text" name="registration" placeholder="Registration Number" required /><br /><br />
 <label>Path to Image: </label><br>
 <input type="text" name="imgPath" placeholder="e.g. img/carName" required /><br /><br />
+<label>Price:</label><br>
+<input type="number" name="price" placeholder="Car Price" required /><br /><br />
 <label>Manufactuer: </label><br>
 <select name="manufacturer" required>
   <option value="audi">Audi</option>
@@ -111,8 +113,10 @@ include("auth.php");
   <input type="radio" name="fuel" value="diesel"> Diesel
   <input type="radio" name="fuel" value="gas"> Gas
   <input type="radio" name="fuel" value="electric"> Electric<br /><br />
-  
- <label>Email Address: </label><br>
+
+<label>Description:</label><br>
+<input type="text" name="description" placeholder="Car Description" required /><br /><br /> 
+<label>Email Address: </label><br>
 <input type="email" name="email" placeholder="Email" /><br /><br />
 <label>Phone number: </label><br>
 <input type="tel" name="phone" placeholder="Phone number" /><br /><br />
