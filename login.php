@@ -104,6 +104,14 @@ Author: Barrie & Brian
                 </form>
                 <p>Not registered yet? <a href='registration.php'>Register Here</a></p>
 
+                <p>
+                </p><br><br>
+                </br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
                 <br /><br />
 
           </div>

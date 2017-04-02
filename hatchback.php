@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Welcome - B&amp;B Autos</title>
+    <title>Hatchback - B&amp;B Autos</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@ include_once("includes/dbconx.php");
 
 /*  The following line uses the php mysqli_query function to read data from the usedCars table  */
 
-$result = mysqli_query($link, "SELECT * FROM usedCars " ) or die(mysqli_error($link));
+$result = mysqli_query($link, "SELECT * FROM usedCars Where type = 'hatchback' " ) or die(mysqli_error($link));
 
 ?>
 

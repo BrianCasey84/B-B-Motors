@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Welcome - B&amp;B Autos</title>
+    <title>Coupe - B&amp;B Autos</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@ include_once("includes/dbconx.php");
 
 /*  The following line uses the php mysqli_query function to read data from the usedCars table  */
 
-$result = mysqli_query($link, "SELECT * FROM usedCars " ) or die(mysqli_error($link));
+$result = mysqli_query($link, "SELECT * FROM usedCars Where type = 'coupe' " ) or die(mysqli_error($link));
 
 ?>
 
@@ -80,12 +80,12 @@ $result = mysqli_query($link, "SELECT * FROM usedCars " ) or die(mysqli_error($l
             <div class="col-md-3">
                 <p class="lead">B&B Autos</p>
                 <div class="list-group">
-                  <a href="index.php" class="list-group-item">Show All</a>
-                  <a href="hatchback.php" class="list-group-item">Hatchback</a>
-                  <a href="saloon.php" class="list-group-item">Saloon</a>
-                  <a href="coupe.php" class="list-group-item">Coupe</a>
-                  <a href="estate.php" class="list-group-item">Estate</a>
-                  <a href="7-seater.php" class="list-group-item">7-Seater</a>
+                    <a href="index.php" class="list-group-item">Show All</a>
+                    <a href="hatchback.php" class="list-group-item">Hatchback</a>
+                    <a href="saloon.php" class="list-group-item">Saloon</a>
+                    <a href="coupe.php" class="list-group-item">Coupe</a>
+                    <a href="estate.php" class="list-group-item">Estate</a>
+                    <a href="7-seater.php" class="list-group-item">7-Seater</a>
                 </div>
             </div>
 
